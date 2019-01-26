@@ -1,0 +1,193 @@
+<html>
+    <head>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script src="https://unpkg.com/vuex@3.0.1/dist/vuex.js"></script>
+
+    
+<style>
+    
+    
+.button1 {
+    width: 500px;
+    height: 500px;
+    background-color: yellow;
+    border: none;
+    color: black;
+    padding: 10px 10px 470px 4px;
+    display: inline-block;
+    font-size: 20px;
+    margin: 4px 2px;
+    border-radius: 50%;
+    cursor: crosshair;
+    outline:none
+} 
+    
+.button2 {
+    width: 430px;
+    height: 430px;
+    background-color: black;
+    border: none;
+    color: yellow;
+    padding: 10px 10px 380px 10px;
+    display: inline-block;
+    font-size: 16px;
+    margin: 38px 2px 0px -470px;
+    border-radius: 50%;
+    position: absolute;
+    cursor: crosshair;
+    outline:none
+} 
+    
+.button3 {
+    width: 330px;
+    height: 330px;
+    background-color: yellow;
+    border: none;
+    color: black;
+    padding: 10px 10px 309px 10px;
+    display: inline-block;
+    font-size: 16px;
+    margin: 90px 2px 0px -420px;
+    border-radius: 50%;
+    position: absolute;
+    cursor: crosshair;
+    outline:none
+} 
+    
+.button4 {
+    width: 230px;
+    height: 230px;
+    background-color: black;
+    border: none;
+    color: yellow;
+    padding: 10px 10px 209px 10px;
+    display: inline-block;
+    font-size: 16px;
+    margin: 140px 2px 0px -370px;
+    border-radius: 50%;
+    position: absolute;
+    cursor: crosshair;
+    outline:none
+}
+    
+.button5 {
+    width: 130px;
+    height: 130px;
+    background-color: red;
+    border: none;
+    color: white;
+    padding: 10px 10px 20px 10px;
+    display: inline-block;
+    font-size: 16px;
+    margin: 190px 2px 0px -320px;
+    border-radius: 50%;
+    position: absolute;
+    cursor: crosshair;
+    outline:none
+} 
+    
+.button6 {
+    width: 130px;
+    height: 60px;
+    background-color: red;
+    border: none;
+    color: white;
+    padding: 10px 10px 10px 10px;
+    display: inline-block;
+    font-size: 16px;
+    margin: 0px 0px 0px 190px;
+    border-radius: 50px;
+    position: absolute;
+    cursor: pointer;
+    outline:none
+
+}    
+    
+
+p.summa {
+        color: white;
+        font-size: 30px;
+        margin-left: 170px;
+        background-color: green;
+        border-radius: 50px;
+        width: 150px;
+        padding: 10px;
+        text-align: center;
+
+    }
+    
+        
+    </style>    
+    
+</head>        
+        
+<body>
+    
+<div id="app">    
+
+<button class="button1" @click="increase(1)">1</button>        
+<button class="button2" @click="increase(2)">2</button>
+<button class="button3" @click="increase(3)">3</button>
+<button class="button4" @click="increase(4)">4</button>
+<button class="button5" @click="increase(5)">5</button>    
+
+    
+<p class="summa"> Score<br> {{ counter }} </p>  
+
+
+<button class="button6" @click="reset">Reset</button>
+
+
+  
+</div>    
+    
+    
+     </body>    
+</html>   
+    
+
+<script>
+    
+const store = new Vuex.Store ({
+    state: {
+        counter: 0
+    },
+mutations: {
+    inc(state, antal) {
+        state.counter += antal
+    },
+    
+    reset(state) {
+    state.counter = 0    
+    }
+
+}     
+    
+})
+    
+const app = new Vue ({
+el: '#app',
+
+computed: {
+    counter () {
+    return store.state.counter
+}
+},
+                     
+methods: {
+increase(antal) {
+    store.commit('inc', antal)
+},
+    reset(antal) {
+      store.commit('reset', antal);
+    
+    },
+    
+}     
+                     
+})    
+    
+    
+    
+    </script>
+
