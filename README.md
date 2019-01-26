@@ -1,2 +1,2 @@
 # dartboard
-a simple playful dartboard made with javascript and html/css
+A simple playful dartboard made with javascript and html/css
